@@ -25,7 +25,7 @@
 
 // RTT configuration
 const rttAddr = 0x20000000;
-const rttRange = 0x10000;
+const rttRange = 0x40000;
 const rttSignature = "53454747455220525454"; // "SEGGER RTT"
 
 
