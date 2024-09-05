@@ -41,13 +41,13 @@ class RTT {
     }
 
     async init (processor) {
-        let scanBlockSize = 0x1000 ;
-        let scanStride = 0x0800;
+        let scanBlockSize = 0x1010;
+        let scanStride = 0x1000;
 
         // locate RTT control block
         console.log("Locating RTT control block...");
 
-        // inspect 4kB windows, advancing with a 2kB stride
+        // inspect 4kB+16bytes windows, advancing with a 4KB stride
         for (var offset=0; offset < rttRange; offset += scanStride) {
             console.log(" scanning at", offset.toString(16));
             var data32 = await this.processor.readBlock(rttAddr + offset, scanBlockSize / 4);
