@@ -83,9 +83,9 @@ SOFTWARE.
 
                 // connect to target and reset it
                 await processor.connect();
-                await processor.softReset();
-                await new Promise(resolve => setTimeout(resolve, 1000));
-                await processor.halt();
+                // await processor.softReset();
+                // await new Promise(resolve => setTimeout(resolve, 1000));
+                // await processor.halt();
                 console.log('Connected.');
 
                 // locate RTT buffers
@@ -95,7 +95,7 @@ SOFTWARE.
                     return;
                 console.log("RTT up buffers:", rtt.bufUp);
                 console.log("RTT down buffers:", rtt.bufDown);
-                await processor.resume();
+                // await processor.resume();
 
                 document.getElementById("control").innerHTML = 'stop RTT';
                 connected = true;
