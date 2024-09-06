@@ -46,7 +46,7 @@ SOFTWARE.
     
 <body>
     <button id="control">start RTT</button>
-    <button id="irq">trigger IRQ</button>
+    <button id="irq" title="Triggers IRQ 9 = TIMER1 on nrf52, wakes device from sleep">trigger IRQ</button>
 
     <div id="terminal"></div>
 
@@ -68,7 +68,7 @@ SOFTWARE.
         var connected = false;
         document.getElementById("irq").onclick = async () => {
             if (connected && processor){
-                processor.writeMem32(0xE000EF00,9);
+                processor.writeMem32(0xE000EF00,9); // trigger IRQ 9 via writing Cortex M STIR register
             }
         }
         // start/stop button
