@@ -46,6 +46,7 @@ SOFTWARE.
     
 <body>
     <button id="control">start RTT</button>
+    <button id="irq">trigger IRQ</button>
 
     <div id="terminal"></div>
 
@@ -65,7 +66,11 @@ SOFTWARE.
 
         // control
         var connected = false;
-
+        document.getElementById("irq").onclick = async () => {
+            if (connected && processor){
+                processor.writeMem32(0xE000EF00,9);
+            }
+        }
         // start/stop button
         document.getElementById("control").onclick = async () => {
             if (!connected) {
